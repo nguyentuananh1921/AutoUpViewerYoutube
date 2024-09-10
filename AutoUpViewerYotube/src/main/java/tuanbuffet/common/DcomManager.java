@@ -4,13 +4,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class DcomManager {
-    public static void main(String[] args) {
+    static String connectCommand = "rasdial \"nta\"";
+    // Lệnh ngắt kết nối DCOM
+    static String disconnectCommand = "rasdial \"nta\" /disconnect";
+    public static void resetIp(){
         try {
-            // Lệnh kết nối DCOM
-            String connectCommand = "rasdial \"nta\"";
-            // Lệnh ngắt kết nối DCOM
-            String disconnectCommand = "rasdial \"nta\" /disconnect";
-
             // Thực hiện lệnh kết nối
             executeCommand(connectCommand);
 
@@ -41,6 +39,6 @@ public class DcomManager {
 
         // Đợi cho đến khi lệnh hoàn thành
         process.waitFor();
-        Thread.sleep(2000);
+        StringProcessing.sleep(2);
     }
 }

@@ -10,18 +10,17 @@ public class DataListLinkYoutube {
     DataLinksYoutube data;
     List<DataLinksYoutube> listData;
     ExcelHelper excel;
-    public List<DataLinksYoutube> getDataListLinkExcel(){
+    public  List<DataLinksYoutube> getDataListLinkExcel(){
         listData = new ArrayList<>();
         excel = new ExcelHelper();
         for ( int i = 1; ; i++ ) {
-            excel.setExcelFile("C:\\dataAutoBos\\deleteHV.xlsx", "Sheet1");
+            excel.setExcelFile("C:\\data\\youtube\\DataLinks.xlsx", "Sheet1");
             if (excel.getCell("Link", i) == null) {
                 data = new DataLinksYoutube("");
             }
             else {
                 if (excel.getCell("Link", i).isEmpty()) break;
-
-                String link = excel.getCell("teacher", i);
+                String link = excel.getCell("Link", i);
                 data = new DataLinksYoutube(link);
             }
             listData.add(data);

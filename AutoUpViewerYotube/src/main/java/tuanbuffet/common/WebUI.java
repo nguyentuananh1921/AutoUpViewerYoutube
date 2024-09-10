@@ -61,14 +61,14 @@ public class WebUI {
         options.addArguments("--blink-settings=imagesEnabled=false");*/
         driver.set(new ChromeDriver(options));
         getDriver().manage().window().maximize();
-        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(100));
     }
     public static void openBrowserSize(int width, int height,int distance) {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-position=" +distance +",0" );
         options.addArguments("--window-size=" + width + "," + height);
         driver.set(new ChromeDriver(options));
-        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
+        getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(100));
     }
     public static void closeWindow(){
         getDriver().close();

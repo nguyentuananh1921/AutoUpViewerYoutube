@@ -4,10 +4,12 @@ import java.text.Normalizer;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Locale;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringProcessing {
+    static Random random;
 
     /*Xóa kí tự dặc biệt khỏi chuỗi và vẫn giữ nguyên chữ tiếng việt*/
     public static String DeleteSpecialCharacters(String string){
@@ -78,6 +80,16 @@ public class StringProcessing {
     public static void sleep(double second) {
         try {
             Thread.sleep((long) (1000 * second));
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void sleepRandom(int timeStart, int timeFinish){
+        random = new Random();
+        int randomSeconds = timeStart + random.nextInt(timeFinish - timeStart + 1);
+        System.out.println(randomSeconds);
+        try {
+            Thread.sleep((long) (1000L * randomSeconds));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
